@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fruit Detector</title>
+    <style>
+        body { text-align:center; font-family:Arial; background:#f2f2f2; }
+        .box { background:white; padding:20px; margin:30px auto; width:400px; border-radius:10px; }
+        button { padding:10px 20px; background:orange; color:white; border:none; }
+        img { width:300px; margin-top:15px; }
+    </style>
+</head>
+<body>
+
+<h1>🍎 Fruit Ripeness Detection</h1>
+
+<div class="box">
+<form action="/predict" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" required><br><br>
+    <button>Predict</button>
+</form>
+
+{% if prediction %}
+    <h2>{{ prediction }}</h2>
+    <img src="{{ image_path }}">
+{% endif %}
+
+</div>
+
+</body>
+</html>
